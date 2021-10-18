@@ -15,16 +15,12 @@ void CalculateArea(std::string baseFromUser, std::string heightFromUser) {
     float area2;
 
     // process
-    try {
-        base = std::stoi(baseFromUser);
-        height = std::stoi(heightFromUser);
-        area = height * base;
-        area2 = area / 2;
-        std::cout << "The area of the triangle is " << area2 <<
-        " cm²." << std::endl;
-    } catch (std::invalid_argument) {
-        std::cout << "Invalid input." << std::endl;
-    }
+
+    area = height * base;
+    area2 = area / 2;
+    std::cout << "The area of the triangle is " << area2 <<
+    " cm²." << std::endl;
+
 
     // output
     std::cout << std::endl;
@@ -44,7 +40,16 @@ main() {
     std::cout << "Enter the height of a triangle (cm): ";
     std::cin >> heightFromUser;
     std::cout << std::endl;
+    try {
+        base = std::stoi(baseFromUser);
+        height = std::stoi(heightFromUser);
+    } catch (std::invalid_argument) {
+        std::cout << "Invalid input." << std::endl;
 
     // call functions
     CalculateArea(baseFromUser, heightFromUser);
+
+    // output
+    std::cout << std::endl;
+    std::cout << "Done.";
 }
